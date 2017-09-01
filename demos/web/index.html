@@ -34,44 +34,24 @@ limitations under the License.
         </div>
         <hr>
         <div class="row">
-            <div class="col-md-8">
-                <div class="header">
-                <ul class='tabs'>
-                    <li class='tab-link' data-tab='tab-preview'
-                        id='tab-preview-button'>
-                        <b>Preview from camera</b>
-                    </li>
-                    <li class='tab-link current' data-tab='tab-annotated'
-                        id='tab-annotated-button'>
-                        <b>Recognized face</b>
-                    </li>
-                </ul>
-                <div id='tab-preview' class='tab-content'>
-                    <video id="videoel" width="400" height="300"
-                           preload="auto" loop></video>
-                </div>
-                <div id='tab-annotated' class='tab-content current'>
-                    <div id="detectedFaces"></div>
-                </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <h4 class="unitext"> <b>People in Video</b></h4>
+            <div class="col-md-2">
+                
+                <h4 class="unitext"> <b>Detected Face</b></h4>
                 <div id="peopleInVideo"></div>
 
                 <h2>Servers: </h2><h4 class="unitext"><span id="serverStatus"></span></h4>
                 <!-- <div id="serverStatus"></div> -->
                 <div class="btn-group" role="group" id="serverBtn">
                     <button type="button" class="btn btn-default active">Local</button>
-                <br><br><br> 
-                <div>
+                
+                <!--div>
                     Training Step:
                     <ul>
                     <li>1. put name and add a person</li>
                     <li>2. turning on traning and wait until the system store the face about 20-30 faces</li>
                     <li>3. turning off training</li>
                 </ul>
-                </div>
+                </div-->
                 
                     <!--
                     <button type="button" class="btn btn-default">CMU</button>
@@ -79,32 +59,54 @@ limitations under the License.
                     <button type="button" class="btn btn-default">AWS West</button>
                     -->
                 </div>
-            </div>
-            
-        </div>
 
-            <div class="content">
-                <hr>
-                <h2>Training
-                    <input type="checkbox" checked data-toggle="toggle"
-                           id="trainingChk">
-                </h2>
+
+            </div>
+            <div class="col-md-6">
+                <div class="header">
+                
+                <div id='tab-preview' class='tab-content'>
+                    <video id="videoel" width="400" height="300"
+                           preload="auto" loop></video>
+                </div>
+                <div id='tab-annotated' class='tab-content current'>
+                    <div id="detectedFaces"></div>
+                </div>
+                <ul class='tabs'>
+                    <li class='tab-link' data-tab='tab-preview'
+                        id='tab-preview-button'>
+                        <b>Camera</b>
+                    </li>
+                    <li class='tab-link current' data-tab='tab-annotated'
+                        id='tab-annotated-button'>
+                        <b>Recognized face</b>
+                    </li>
+                </ul>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+            	
                 <div class="input-group addPersonDiv">
-                    <input type="text" class="form-control" id="addPersonTxt">
+                    <input type="text" class="form-control" id="addPersonTxt" placeholder="1.Put your name and press Add">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="button"
                                 id="addPersonBtn">
-                            Add Person
+                            Add
                         </button>
                     </span>
                 </div>
+                <h2>2. Training
+                    <input type="checkbox" checked data-toggle="toggle"
+                           id="trainingChk">
+                </h2>
                 <br/>
-                <div>
+                <!--div>
                     <button class="btn btn-default" type="button"
                             id="viewTSNEBtn">
                         Visualize with TSNE
                     </button>
-                </div>
+                </div-->
                 <br/>
                 <div class="dropdown" id="defaultPersonDropdown"></div>
                 <script id="defaultPersonTmpl" type="text/x-handlebars-template">
@@ -129,8 +131,15 @@ limitations under the License.
                     </ul>
                 </script>
 
-                <br/>
+            </div>
+            
+        </div>
 
+            <div class="content">
+                <hr>
+                
+                <br/>
+                <h2>Trained face</h2>
                 <ul id="peopleInfo"></ul>
 
                 <br/>
@@ -247,4 +256,5 @@ limitations under the License.
      createSocket("wss://" + window.location.hostname + ":9000", "Local");
     </script>
 </html>
+
 
